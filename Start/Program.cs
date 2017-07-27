@@ -1,5 +1,7 @@
 ﻿using System;
-using RegistrationPipeline;
+using bsb.integration.RegistrationEventHandlers;
+using bsb.integration.RegistrationPipeline;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Start
 {
@@ -7,17 +9,20 @@ namespace Start
     {
         static void Main(string[] args)
         {
-            var events = new RegistrationEvents();
-            var registrationModule = new SayHelloAction();
-            registrationModule.Initialize(events);
 
-            Console.WriteLine("Player registration");
+            var serviceProvider = new ServiceCollection()
+                .AddSingleton<RegistrationEvents>()
+                .AddSingleton<EventsCordinator>()
+                .AddSingleton<RegistrationEventHandlersAgregation>();
 
-            if (events.OrderSource != null)
-            {
-                events.OrderSource.Invoke(new OrderEventArgs("Hien Khieu"));
-            }
-            Console.ReadKey();
+            var provider = serviceProvider.BuildServiceProvider();
+
+            var eventCordinator = provider.GetService<EventsCordinator>();
+
+            Console.WriteLine("Submit order");
+
+            eventCordinator.Events.OrderSummited?.Invoke(new OrderEventArgs("Hien Khieu"));
+            //Console.ReadKey();
 
         }
     }
