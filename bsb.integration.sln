@@ -5,8 +5,6 @@ VisualStudioVersion = 15.0.26430.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RegistrationPipeline", "RegistrationPipeline\RegistrationPipeline.csproj", "{6A0F51B4-8FB7-4EFB-AEC9-CDF48011A877}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Start", "Start\Start.csproj", "{B5DF9B6C-5EF6-413E-B4CB-E6BBEBC69804}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RegistrationEventHandlers", "RegistrationHandlers\RegistrationEventHandlers.csproj", "{A3F74D02-E88E-482F-9C02-6ECB3E746F83}"
 EndProject
 Global
@@ -19,10 +17,6 @@ Global
 		{6A0F51B4-8FB7-4EFB-AEC9-CDF48011A877}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6A0F51B4-8FB7-4EFB-AEC9-CDF48011A877}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6A0F51B4-8FB7-4EFB-AEC9-CDF48011A877}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B5DF9B6C-5EF6-413E-B4CB-E6BBEBC69804}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B5DF9B6C-5EF6-413E-B4CB-E6BBEBC69804}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B5DF9B6C-5EF6-413E-B4CB-E6BBEBC69804}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B5DF9B6C-5EF6-413E-B4CB-E6BBEBC69804}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A3F74D02-E88E-482F-9C02-6ECB3E746F83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A3F74D02-E88E-482F-9C02-6ECB3E746F83}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A3F74D02-E88E-482F-9C02-6ECB3E746F83}.Release|Any CPU.ActiveCfg = Release|Any CPU
