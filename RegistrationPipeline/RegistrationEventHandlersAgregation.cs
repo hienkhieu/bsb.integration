@@ -13,23 +13,34 @@ namespace bsb.integration.RegistrationPipeline
 
         public RegistrationEventHandlersAgregation()
         {
-            var all = Assembly
+            // var all = Assembly
+            //     .GetEntryAssembly()
+            //     .GetReferencedAssemblies()
+            //     .Select(Assembly.Load)
+            //     .SelectMany(x => x.DefinedTypes)
+            //     .Where(type => typeof(IRegistrationModule).IsAssignableFrom(type.AsType()));
+            //
+            // foreach (var ti in all)
+            // {
+            //     var t = ti.AsType();
+            //     // eliminate interface itself
+            //     if (t != typeof(IRegistrationModule))
+            //     {
+            //         // do work
+            //         EventHandlers.Add(Activator.CreateInstance(t) as IRegistrationModule);
+            //     }
+            // }
+            
+            Assembly
                 .GetEntryAssembly()
                 .GetReferencedAssemblies()
                 .Select(Assembly.Load)
                 .SelectMany(x => x.DefinedTypes)
-                .Where(type => typeof(IRegistrationModule).IsAssignableFrom(type.AsType()));
-
-            foreach (var ti in all)
-            {
-                var t = ti.AsType();
-                // eliminate interface itself
-                if (t != typeof(IRegistrationModule))
-                {
-                    // do work
-                    EventHandlers.Add(Activator.CreateInstance(t) as IRegistrationModule);
-                }
-            }
+                .Where(type => typeof(IRegistrationModule).IsAssignableFrom(type.AsType()))
+                .Select(ti => ti.AsType())
+                .Where(x => x != typeof(IRegistrationModule))
+                .ToList()
+                .ForEach(x => EventHandlers.Add(Activator.CreateInstance(x) as IRegistrationModule));
         }
     }
 }

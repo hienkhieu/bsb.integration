@@ -23,7 +23,7 @@ namespace Start
             var provider = serviceProvider.BuildServiceProvider();
 
             var eventCordinator = provider.GetService<EventsCordinator>();
-            eventCordinator.Events.OrderSummited?.Invoke(new OrderEventArgs("Hien Khieu"));
+            eventCordinator.Events.OrderSubmitted?.Invoke(new OrderEventArgs("Hien Khieu"));
 
 
             var volunteers = new List<VolunteerInfo>

@@ -22,8 +22,8 @@ namespace bsb.integration.RegistrationEventHandlers
             Age = age;
             VolunteerPosition = position;
         }
-        public string Name { get; set; }
-        public int Age { get; set; }
-        public string VolunteerPosition { get; set; }
+        public string Name { get; }
+        public int Age { get; }
+        public string VolunteerPosition { get; }
     }
 }

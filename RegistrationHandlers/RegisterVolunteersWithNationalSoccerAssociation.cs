@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace bsb.integration.RegistrationEventHandlers
@@ -7,14 +8,12 @@ namespace bsb.integration.RegistrationEventHandlers
     {
         public void Visit(RegistrationEvents events)
         {
-            events.VolunteerRegistered += async args =>
+            events.VolunteerRegistered += args =>
             {
-                Console.WriteLine("Before sumitting voluteer");
-                foreach (var volunteer in args.Volunteers)
-                {
-                    await Task.Run(() => Console.WriteLine(
-                        $"Hello {volunteer.Name}, we are submitting your information to National Soccer Association.\n Your position will be {volunteer.VolunteerPosition}."));
-                }
+                args.Volunteers.ToList().ForEach(x => Console.WriteLine(
+                    $"Hello {x.Name}, we are submitting your information to National Soccer Association.\n Your position will be {x.VolunteerPosition}."));
+                
+                return Task.CompletedTask;
             };
         }
     }

@@ -9,7 +9,7 @@ namespace bsb.integration.RegistrationEventHandlers
         {
             //events.OrderSummited += args => Console.WriteLine($"Hello {args.PlayerName}. You are the best player in the world");
 
-            events.OrderSummited +=
+            events.OrderSubmitted +=
                 async args => await Task.Run(
                     () => Console.WriteLine(
                         $"Hello {args.PlayerName}. You are the best player in the world"));
